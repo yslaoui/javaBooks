@@ -1,5 +1,6 @@
 package books;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +43,17 @@ public class Library {
         String result  = "";
         for (String key: this.library.keySet()) {
           result += this.library.get(key) + "\n";
+        }
+        return result;
+    }
+
+    public ArrayList<Book> getBookByPart(String part) {
+        ArrayList<Book> result = new ArrayList<>();
+        part = sanitize(part);
+        for (String key: this.library.keySet()) {
+            if (key.contains(part)) {
+                result.add(this.library.get(key));
+            }
         }
         return result;
     }
