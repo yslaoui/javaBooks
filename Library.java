@@ -50,9 +50,9 @@ public class Library {
     public ArrayList<Book> getBookByPart(String part) {
         ArrayList<Book> result = new ArrayList<>();
         part = sanitize(part);
-        for (String key: this.library.keySet()) {
-            if (key.contains(part)) {
-                result.add(this.library.get(key));
+        for (Book book: this.library.values()) {
+            if (book.getName().contains(part)) {
+                result.add(book);
             }
         }
         return result;
